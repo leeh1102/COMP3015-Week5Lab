@@ -1,14 +1,14 @@
 {
-    "COMP3111": {
-        "id": "COMP3111",
-        "completed": true
-    },
-    "COMP23232": {
-        "id": "COMP23232",
+    "COMP3015": {
+        "id": "COMP3015",
         "completed": false
     },
-    "cmp2224444": {
-        "id": "COMP23232",
-        "completed": true
+    "COMP2525": {
+        "id": "COMP2525",
+        "completed": false
+    },
+    "COMP123": {
+        "id": "COMP123",
+        "completed": false
     }
 }

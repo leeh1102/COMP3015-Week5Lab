@@ -24,7 +24,7 @@ input[type="submit"] {
   cursor: pointer;
   font-size: 17px;
 }
-#editButton {
+.editButtons {
   background-color: #89a0dc;
   border: none;
   color: white;
@@ -36,7 +36,7 @@ input[type="submit"] {
   cursor: pointer;
   font-size: 13px;
 }
-#deleteButton {
+.deleteButtons {
   background-color: #dc89a7;
   border: none;
   color: white;

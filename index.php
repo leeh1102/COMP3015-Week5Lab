@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" action="form_processor.php" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <title>Week 5 Lab - Course Manager</title>
@@ -11,30 +11,64 @@
 
 <body>
     <h1>Course Manager</h1>
-    <form action="./form_processor.php" method="get">
-        <input type="text" name="courseNmae" id="courseName" placeholder="ex.COMP3015" />
+    <form enctype="multipart/form-data" action="form_processor.php" method="post" id="courseForm">
+        <input type="text" name="courseNameToAdd" id="courseName" placeholder="ex.COMP3015" />
         <span><input type="submit" value="ADD" /></span>
         <br>
         <br>
-        <input type="checkbox" id="courseNameONe" name="courseNameONe" value="COMP3015">
-        <label for="courseNameONe">COMP3015</label>
-        <span><input type="button" value="EDIT" id="editButton" /></span>
-        <span><input type="button" value="DELETE" id="deleteButton" /></span>
-        <br>
-        <br>
-        <input type="checkbox" id="courseNameTwo" name="courseNameTwo" value="MATH1113">
-        <label for="courseNameTwo">COMP2502</label>
-        <span><input type="button" value="EDIT" id="editButton" /></span>
-        <span><input type="button" value="DELETE" id="deleteButton" /></span>
-        <br>
-        <br>
-        <input type="checkbox" id="courseNameThree" name="courseNameThree" value="COMP1521">
-        <label for="courseNameThree">COMP1521</label>
-        <span><input type="button" value="EDIT" id="editButton" /></span>
-        <span><input type="button" value="DELETE" id="deleteButton" /></span>
+        <?php include("main.php") ?>
+        <div>
+            <!-- <img src="<?php echo $picture; ?>" /> -->
+        </div>
         <br>
         <br>
     </form>
+    <script>
+        document.querySelectorAll(".courseNames").forEach(e => {
+            e.addEventListener("change", event => {
+                const courseName = event.target.getAttribute("name");
+                const form = document.getElementById("courseForm");
+                const input = document.createElement("input");
+                input.setAttribute("type", "hidden");
+                input.setAttribute("name", "courseNameToToggle");
+                input.setAttribute("value", courseName);
+                form.appendChild(input);
+                form.submit();
+            });
+        });
+        document.querySelectorAll(".deleteButtons").forEach(e => {
+            e.addEventListener("click", event => {
+                const courseName = event.target.getAttribute("name");
+                const form = document.getElementById("courseForm");
+                const input = document.createElement("input");
+                input.setAttribute("type", "hidden");
+                input.setAttribute("name", "courseNameToDelete");
+                input.setAttribute("value", courseName);
+                form.appendChild(input);
+                form.submit();
+            });
+        });
+
+        document.querySelectorAll(".editButtons").forEach(e => {
+            e.addEventListener("click", event => {
+                const newCourseName = prompt("Please enter new course name.");
+                const courseName = event.target.getAttribute("name");
+                const form = document.getElementById("courseForm");
+                var inputOne = document.createElement("input");
+                inputOne.setAttribute("type", "hidden");
+                inputOne.setAttribute("name", "courseNameToEdit");
+                inputOne.setAttribute("value", courseName);
+                form.appendChild(inputOne);
+                var inputTwo = document.createElement("input");
+                inputTwo.setAttribute("type", "hidden");
+                inputTwo.setAttribute("name", "courseNameToEditTo");
+                inputTwo.setAttribute("value", newCourseName);
+                form.appendChild(inputTwo);
+                form.submit();
+            });
+        });
+    </script>
+
     <footer>
     </footer>
 

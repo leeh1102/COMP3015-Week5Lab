@@ -3,28 +3,59 @@ class RemoteReadWriter implements IReadWritable
 {
   public function getCourses()
   {
-    return "remote courses";
+    $data = json_decode(file_get_contents("./courseData.json", true));
+    return $data;
   }
 
   public function addCourse($course)
   {
-    // some logic to add that course to the file
-    return "remote course added";
+    $data = $this->getCourses();
+    $newCourse = array(
+      "id" => $course,
+      "completed" => false
+    );
+    $data->$course = $newCourse;
+    if (!file_put_contents("./courseData.json", json_encode($data, JSON_PRETTY_PRINT))) {
+      echo "Error.";
+    } else {
+      echo "comepleted!";
+    }
   }
 
-  public function deleteCourse($id)
+  public function deleteCourse($course)
   {
-    // lookup course in file by id and remove it
-    return "remote course deleted";
+    $data = $this->getCourses();
+    unset($data->$course);
+    if (!file_put_contents("./courseData.json", json_encode($data, JSON_PRETTY_PRINT))) {
+      echo "Error.";
+    } else {
+      echo "comepleted!";
+    }
   }
 
-  public function completeCourse($id)
+  public function completeCourse($course)
   {
-    // lookup the course in the file by id and mark it as completed
-    return "remote course completed";
+    $data = $this->getCourses();
+    $data->$course->completed = !$data->$course->completed;
+    if (!file_put_contents("./courseData.json", json_encode($data, JSON_PRETTY_PRINT))) {
+      echo "Error.";
+    } else {
+      echo "comepleted!";
+    }
   }
   public function editCourse($course, $newCourse)
   {
-    return "remote course updated";
+    $data = $this->getCourses();
+    if ($newCourse != "" && $newCourse != "null") {
+      $data->$newCourse = $data->$course;
+      unset($data->$course);
+      if (!file_put_contents("./courseData.json", json_encode($data, JSON_PRETTY_PRINT))) {
+        echo "Error.";
+      } else {
+        echo "comepleted!";
+      }
+    } else {
+      echo "Erorr.2";
+    }
   }
 }

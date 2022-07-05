@@ -1,12 +1,11 @@
 <?php
-require_once("../loginAndLogout/useAuth.php");
+require_once("../loginAndLogOut/useAuth.php");
 
 $user = getLoggedInUser();
 // Restricted route
 if (!$user) {
-  header("location: ../loginAndLogout/login.php");
+  header("location: ../loginAndLogOut/login.php");
   exit();
 }
 
-// require("dashboard.view.php");
 require("../../courseManager.php");

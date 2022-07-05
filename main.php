@@ -1,10 +1,10 @@
 <?php
 // Import all of our files
-include("../../interfaces/IReadWritable.php");
-include("../../classes/CourseManager.php");
-include("../../classes/Course.php");
-include("../../classes/IO/LocalReadWriter.php");
-include("../../classes/IO/RemoteReadWriter.php");
+include("./interfaces/IReadWritable.php");
+include("./classes/CourseManager.php");
+include("./classes/Course.php");
+include("./classes/IO/LocalReadWriter.php");
+include("./classes/IO/RemoteReadWriter.php");
 
 $localCourseManager = new CourseManager("john123", new LocalReadWriter());
 $remoteCourseManager = new CourseManager("john123", new RemoteReadWriter());

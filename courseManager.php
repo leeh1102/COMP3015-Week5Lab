@@ -37,7 +37,7 @@ if (isset($_FILES["profile_picture"])) {
     }
 }
 ?>
-<?php include_once "../../header.php"; ?>
+<?php include_once "header.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +59,7 @@ if (isset($_FILES["profile_picture"])) {
     <div>
         <img src="<?php echo $picture; ?>" class="uploadedImage">
     </div>
-    <form enctype="multipart/form-data" action="form_processor.php" method="post" id="courseForm">
+    <form enctype="multipart/form-data" action="../../form_processor.php" method="post" id="courseForm">
         <input type="text" name="courseNameToAdd" id="courseName" placeholder="ex.COMP3015" />
         <span><input type="submit" value="ADD" /></span>
         <br>
@@ -121,4 +121,4 @@ if (isset($_FILES["profile_picture"])) {
 
 </html>
 
-<?php include_once "../../footer.php"; ?>
+<?php include_once "footer.php"; ?>

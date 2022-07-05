@@ -1,8 +1,4 @@
 {
-    "COMP3015": {
-        "id": "COMP3015",
-        "completed": false
-    },
     "COMP2525": {
         "id": "COMP2525",
         "completed": false
@@ -11,8 +7,8 @@
         "id": "COMP123",
         "completed": false
     },
-    "COMP": {
-        "id": "COMP",
+    "COMP3014": {
+        "id": "COMP3015",
         "completed": false
     }
 }

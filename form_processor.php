@@ -33,4 +33,4 @@ if (
     $localCourseManager->editCourse($courseNameToEdit, $courseNameToEditTo);
 }
 
-header('Location: /index.php');
+header('Location: ../../courseManager.php');

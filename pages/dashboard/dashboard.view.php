@@ -1,85 +1,13 @@
 <?php include_once "../../header.php"; ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../courseManager.css">
-  <title>Week 5 Lab - Course Manager</title>
-</head>
-
-<body>
-  <h1>Course Manager</h1>
-  <form enctype="multipart/form-data" method="post" id="coverPhotoForm">
-    <span><input type="file" name="profile_picture"></span>
-    <span><input class="uploadButton" type="submit" value="UPLOAD"></span>
-  </form>
-  <div>
-    <img src="<?php echo $picture; ?>" class="uploadedImage">
+<div class="hero min-h-screen" style="background-image: url(https://api.lorem.space/image/fashion?w=1000&h=800);">
+  <div class="hero-overlay bg-opacity-60"></div>
+  <div class="hero-content text-center text-neutral-content">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-5xl font-bold">Welcome to your Dashboard</h1>
+      <p class="mb-5"> Your email is: <p><?= $user["email"] ?></p></p>
+    </div>
   </div>
-  <form enctype="multipart/form-data" action="../../form_processor.php" method="post" id="courseForm">
-    <input type="text" name="courseNameToAdd" id="courseName" placeholder="ex.COMP3015" />
-    <span><input type="submit" value="ADD" /></span>
-    <br>
-    <br>
-    <?php include("../../main.php") ?>
-    <br>
-    <br>
-  </form>
-  <script>
-    document.querySelectorAll(".courseNames").forEach(e => {
-      e.addEventListener("change", event => {
-        const courseName = event.target.getAttribute("name");
-        const form = document.getElementById("courseForm");
-        const input = document.createElement("input");
-        input.setAttribute("type", "hidden");
-        input.setAttribute("name", "courseNameToToggle");
-        input.setAttribute("value", courseName);
-        form.appendChild(input);
-        form.submit();
-      });
-    });
-    document.querySelectorAll(".deleteButtons").forEach(e => {
-      e.addEventListener("click", event => {
-        const courseName = event.target.getAttribute("name");
-        const form = document.getElementById("courseForm");
-        const input = document.createElement("input");
-        input.setAttribute("type", "hidden");
-        input.setAttribute("name", "courseNameToDelete");
-        input.setAttribute("value", courseName);
-        form.appendChild(input);
-        form.submit();
-      });
-    });
-
-    document.querySelectorAll(".editButtons").forEach(e => {
-      e.addEventListener("click", event => {
-        const newCourseName = prompt("Please enter new course name.");
-        const courseName = event.target.getAttribute("name");
-        const form = document.getElementById("courseForm");
-        var inputOne = document.createElement("input");
-        inputOne.setAttribute("type", "hidden");
-        inputOne.setAttribute("name", "courseNameToEdit");
-        inputOne.setAttribute("value", courseName);
-        form.appendChild(inputOne);
-        var inputTwo = document.createElement("input");
-        inputTwo.setAttribute("type", "hidden");
-        inputTwo.setAttribute("name", "courseNameToEditTo");
-        inputTwo.setAttribute("value", newCourseName);
-        form.appendChild(inputTwo);
-        form.submit();
-      });
-    });
-  </script>
-
-  <footer>
-  </footer>
-
-</body>
-
-</html>
+</div>
 
 <?php include_once "../../footer.php"; ?>

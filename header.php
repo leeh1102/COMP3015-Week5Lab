@@ -43,9 +43,9 @@ if (!isset($_SESSION)) {
     <div class="navbar-end">
       <?php
       if (isset($_SESSION["userId"])) {
-        echo '<a href="/pages/login/logout.php" class="btn btn-primary">Logout</a>';
+        echo '<a href="/pages/loginAndLogOut/logout.php" class="btn btn-primary">Logout</a>';
       } else {
-        echo '<a href="/pages/login/login.php" class="btn btn-primary">Login</a>';
+        echo '<a href="/pages/loginAndLogOut/login.php" class="btn btn-primary">Login</a>';
       }
       ?>
     </div>

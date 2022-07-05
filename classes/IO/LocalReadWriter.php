@@ -3,7 +3,7 @@ class LocalReadWriter implements IReadWritable
 {
   public function getCourses()
   {
-    $data = json_decode(file_get_contents("./courseData.json", true));
+    $data = json_decode(file_get_contents("../../courseData.json", true));
     return $data;
   }
 
@@ -15,7 +15,7 @@ class LocalReadWriter implements IReadWritable
       "completed" => false
     );
     $data->$course = $newCourse;
-    if (!file_put_contents("./courseData.json", json_encode($data, JSON_PRETTY_PRINT))) {
+    if (!file_put_contents("../../courseData.json", json_encode($data, JSON_PRETTY_PRINT))) {
       echo "Error.";
     } else {
       echo "comepleted!";
@@ -27,7 +27,7 @@ class LocalReadWriter implements IReadWritable
   {
     $data = $this->getCourses();
     unset($data->$course);
-    if (!file_put_contents("./courseData.json", json_encode($data, JSON_PRETTY_PRINT))) {
+    if (!file_put_contents("../../courseData.json", json_encode($data, JSON_PRETTY_PRINT))) {
       echo "Error.";
     } else {
       echo "comepleted!";
@@ -38,7 +38,7 @@ class LocalReadWriter implements IReadWritable
   {
     $data = $this->getCourses();
     $data->$course->completed = !$data->$course->completed;
-    if (!file_put_contents("./courseData.json", json_encode($data, JSON_PRETTY_PRINT))) {
+    if (!file_put_contents("../../courseData.json", json_encode($data, JSON_PRETTY_PRINT))) {
       echo "Error.";
     } else {
       echo "comepleted!";
@@ -51,7 +51,7 @@ class LocalReadWriter implements IReadWritable
     if ($newCourse != "" && $newCourse != "null") {
       $data->$newCourse = $data->$course;
       unset($data->$course);
-      if (!file_put_contents("./courseData.json", json_encode($data, JSON_PRETTY_PRINT))) {
+      if (!file_put_contents("../../courseData.json", json_encode($data, JSON_PRETTY_PRINT))) {
         echo "Error.";
       } else {
         echo "comepleted!";

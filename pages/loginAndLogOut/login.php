@@ -4,7 +4,7 @@ require_once("useAuth.php");
 // ❌ Don't let the user access login page if they're already logged in
 $user = getLoggedInUser();
 if ($user) {
-    header("location: ../courseManager.php");
+    header("location: ../dashboard/dashboard.php");
     exit();
 }
 

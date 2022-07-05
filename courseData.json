@@ -10,5 +10,9 @@
     "COMP123": {
         "id": "COMP123",
         "completed": false
+    },
+    "COMP": {
+        "id": "COMP",
+        "completed": false
     }
 }

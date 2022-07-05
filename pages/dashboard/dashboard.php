@@ -8,4 +8,5 @@ if (!$user) {
   exit();
 }
 
-require("dashboard.view.php");
+// require("dashboard.view.php");
+require("../../courseManager.php");

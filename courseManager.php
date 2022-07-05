@@ -37,6 +37,7 @@ if (isset($_FILES["profile_picture"])) {
     }
 }
 ?>
+<?php include_once "../../header.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +46,7 @@ if (isset($_FILES["profile_picture"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="courseManager.css">
+    <link rel="stylesheet" href="../../courseManager.css">
     <title>Week 5 Lab - Course Manager</title>
 </head>
 
@@ -119,3 +120,5 @@ if (isset($_FILES["profile_picture"])) {
 </body>
 
 </html>
+
+<?php include_once "../../footer.php"; ?>

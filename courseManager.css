@@ -63,6 +63,7 @@ input[value="ADD"] {
   border-radius: 15px;
   width: 72px;
   cursor: pointer;
+  font-size: 13px;
 }
 
 footer {

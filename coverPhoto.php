@@ -35,4 +35,4 @@
 //     }
 // }
 
-// header('Location: /index.php');
+// header('Location: /courseManager.php');
